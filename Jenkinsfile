@@ -4,6 +4,9 @@ pipeline {
         stage('Build') { 
             steps {
                 echo "hello"
+                 sh '''#!/bin/bash
+                 touch /tmp/test1.txt
+                '''
             }
         }
         stage('Test') { 
