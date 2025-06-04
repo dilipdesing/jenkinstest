@@ -4,9 +4,6 @@ pipeline {
         stage('dev') { 
             steps {
                 echo "dev"
-                sh '''#!/bin/bash
-                 python3 test.py
-                '''
             }
         }
         stage('staging') { 
