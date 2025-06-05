@@ -4,6 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                 echo "teting1"
+                sh "./test.sh"
             }
         }
         stage('Test') { 
