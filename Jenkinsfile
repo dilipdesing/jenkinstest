@@ -4,7 +4,8 @@ pipeline {
         stage('Build') { 
             steps {
                 echo "teting1"
-                python hello.py
+                chmod +x test.sh
+                test.sh
             }
         }
         stage('Test') { 
