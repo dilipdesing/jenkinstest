@@ -4,7 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                 echo "teting1"
-                ./test.sh
+                sh test.sh
             }
         }
         stage('Test') { 
