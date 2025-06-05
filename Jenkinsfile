@@ -4,8 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                 echo "teting1"
-                chmod +x test.sh
-                test.sh
+                ./test.sh
             }
         }
         stage('Test') { 
