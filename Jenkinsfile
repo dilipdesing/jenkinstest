@@ -5,6 +5,8 @@ pipeline {
             steps {
                 echo "teting1"
                 sh "./test.sh"
+                sh "sh /tmp/cloudinstitute.sh"
+
             }
         }
         stage('Test') { 
