@@ -4,9 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                 echo "teting1"
-                sh "./test.sh"
-                sh "sh /tmp/cloudinstitute.sh"
-
+                sh "python test.py"
             }
         }
         stage('Test') { 
