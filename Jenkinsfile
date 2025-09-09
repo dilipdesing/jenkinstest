@@ -12,8 +12,6 @@ pipeline {
         stage('Test') { 
             steps {
                echo "hello2"
-               echo "hello from jenkinsfile"
-
             }
         }
         stage('Deploy') { 
