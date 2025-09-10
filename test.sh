@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "this is cloud instittuion - triggering from github"
+echo "this is cloud instittuion - triggering from github-1"
