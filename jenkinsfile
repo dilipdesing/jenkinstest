@@ -11,9 +11,14 @@ pipeline {
                echo "stage"
             }
         }
+        stage('pre-prod') { 
+            steps {
+                echo "pre-prod"
+            }
+        }
         stage('prod') { 
             steps {
-                echo1 "prod"
+                echo "prod"
             }
         }
     }
