@@ -1,25 +1,20 @@
 pipeline {
-    agent any 
+    agent any // Instructs Jenkins to allocate any available agent and workspace
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                sh ''' python3 test.py
-               '''
+                echo 'Building..' // Placeholder step
             }
         }
-        stage('Test') { 
+        stage('Test') {
             steps {
-               echo "hello2"
+                echo 'Testing..' // Placeholder step
             }
         }
-        stage('Deploy') { 
+        stage('Deploy') {
             steps {
-              
-                sh ''' python3 hello.py
-               '''
-
+                echo 'Deploying....' // Placeholder step
             }
         }
     }
 }
-
