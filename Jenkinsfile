@@ -1,5 +1,7 @@
 pipeline {
-    agent any // Instructs Jenkins to allocate any available agent and workspace
+   // agent any // Instructs Jenkins to allocate any available agent and workspace
+    agent { label 'my-agent-node-1' }
+
     stages {
         stage('Build') {
             steps {
