@@ -4,13 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh  'sleep 500'
                 echo 'Building..' // Placeholder step
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..' // Placeholder step
+            }
+        }
+       stage('Approval') {
+            steps {
+                input message: 'Approve deployment to Production?', ok: 'Deploy'
             }
         }
         stage('Deploy') {
