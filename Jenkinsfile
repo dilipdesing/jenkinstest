@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh  'sleep 500'
                 echo 'Building..' // Placeholder step
             }
         }
