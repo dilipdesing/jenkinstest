@@ -1,6 +1,6 @@
 pipeline {
-   agent any // Instructs Jenkins to allocate any available agent and workspace
-   // agent { label 'agent-1-ec2' }
+   //agent any // Instructs Jenkins to allocate any available agent and workspace
+    agent { label 'agent-1-ec2' }
     stages {
         stage('Build') {
             steps {
