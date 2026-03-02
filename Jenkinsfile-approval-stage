@@ -8,7 +8,7 @@ pipeline {
             }
         }
        stage('Approval-dev') { // Approve or Reject
-            steps 
+            steps {
                 input message: 'Approve deployment to Production?', ok: 'Deploy'
             }
         }
