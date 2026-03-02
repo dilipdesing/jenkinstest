@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building..' // Placeholder step
             }
         }
-       stage('Approval') { // Approve or Reject
+       stage('Approval-dev') { // Approve or Reject
             steps {
                 input message: 'Approve deployment to Production?', ok: 'Deploy'
             }
