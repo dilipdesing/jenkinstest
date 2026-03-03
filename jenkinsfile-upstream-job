@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build App') {
+            steps {
+                echo 'Building application'
+            }
+        }
+
+        stage('Trigger Deploy Job') {
+            steps {
+                build job: 'Deploy-Job', wait: true
+            }
+        }
+    }
+}
