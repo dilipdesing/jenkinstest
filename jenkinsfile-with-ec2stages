@@ -1,0 +1,99 @@
+pipeline {
+agent any
+
+```
+environment {
+
+    DEV_SERVER  = "ec2-user@10.0.1.10"
+    QA_SERVER   = "ec2-user@10.0.2.10"
+    PROD_SERVER = "ec2-user@10.0.3.10"
+
+}
+
+stages {
+
+    stage('Deploy to DEV') {
+        steps {
+
+            sshagent(credentials: ['dev-ssh-key']) {
+
+                sh """
+                    ssh -o StrictHostKeyChecking=no ${DEV_SERVER} << EOF
+
+                    echo "Connected to DEV"
+
+                    hostname
+                    uptime
+
+                    cd /opt/dev-app
+
+                    docker compose pull
+                    docker compose up -d
+
+                    exit
+                    EOF
+                """
+            }
+        }
+    }
+
+    stage('Deploy to QA') {
+        steps {
+
+            sshagent(credentials: ['qa-ssh-key']) {
+
+                sh """
+                    ssh -o StrictHostKeyChecking=no ${QA_SERVER} << EOF
+
+                    echo "Connected to QA"
+
+                    hostname
+                    uptime
+
+                    cd /opt/qa-app
+
+                    docker compose pull
+                    docker compose up -d
+
+                    exit
+                    EOF
+                """
+            }
+        }
+    }
+
+    stage('Deploy to PROD') {
+
+        when {
+            branch 'main'
+        }
+
+        steps {
+
+            input message: "Deploy to Production?"
+
+            sshagent(credentials: ['prod-ssh-key']) {
+
+                sh """
+                    ssh -o StrictHostKeyChecking=no ${PROD_SERVER} << EOF
+
+                    echo "Connected to PROD"
+
+                    hostname
+                    uptime
+
+                    cd /opt/prod-app
+
+                    docker compose pull
+                    docker compose up -d
+
+                    exit
+                    EOF
+                """
+            }
+        }
+    }
+}
+```
+
+}
