@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..' // Placeholder step
+                echo 'Testing...' // Placeholder step
             }
         }
         stage('Deploy') {
