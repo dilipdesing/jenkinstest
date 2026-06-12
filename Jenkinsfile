@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..' // Placeholder step
+                echo 'Building..' // Placeh.older step
             }
         }
         stage('Test') {
